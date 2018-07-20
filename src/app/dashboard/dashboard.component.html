@@ -1,0 +1,30 @@
+<div class="container mt-2">
+  <div class="card car-block">
+    <nav class="navbar navbar-dark bg-inverse mb-1">
+      <h1 class="navbar-brand mb-0">Overall Metrics</h1>
+    </nav>
+    <div class="row">
+      <app-metric class="col-sm-12" [used]="cpu.used" [available]="cpu.available" >
+        <metric-title>CPU</metric-title>
+        <metric-description>utilization of cpu cores</metric-description>
+      </app-metric>
+      <table app-nodes class="table table-hover" style="text-align:center;">
+        <tr  app-nodes-row *ngFor="let node of cluster1" [node]="node"></tr>
+      </table>
+
+      <app-metric class="col-sm-12" [used]="mem.used" [available]="mem.available" >
+          <metric-title>Memory</metric-title>
+          <metric-description>utilization of memory in GB</metric-description>
+      </app-metric>
+
+      <nav class="navbar navbar-dark bg-inverse mb-1">
+        <h1 class="navbar-brand mb-0">Cluster 2</h1>
+      </nav>
+      <table app-nodes class="table table-hover" style="text-align:center;">
+        <tr app-nodes-row *ngFor="let node of cluster2" [node]="node"></tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
